@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light" id="htmlRoot">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Imperial International School</title>
+    <!-- استدعاء الخط والأيقونات -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ==================== المتغيرات ولوحة الألوان ==================== */
+        :root {
+            --primary: #184152;
+            --primary-dark: #0b222d;
+            --accent: #9bc1aa;
+            --accent-hover: #7fae91;
+            --accent-light: rgba(155, 193, 170, 0.12);
+            --bg-light: #f7faf9;
+            --white: #ffffff;
+            --text-dark: #1f2d34;
+            --text-muted: #5c707a;
+            --shadow-sm: 0 4px 20px rgba(24, 65, 82, 0.05);
+            --glass-border: rgba(155, 193, 170, 0.3);
+            --header-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        [data-theme="dark"] {
+            --primary: #24586e;
+            --primary-dark: #061218;
+            --accent: #aed3bc;
+            --accent-hover: #91bda1;
+            --accent-light: rgba(174, 211, 188, 0.1);
+            --bg-light: #081116;
+            --white: #122129;
+            --text-dark: #f0f5f8;
+            --text-muted: #8ca2ad;
+            --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --header-bg: rgba(18, 33, 41, 0.95);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        /* ==================== الهيدر والشعار المحدث ==================== */
+        header {
+            background: var(--header-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .school-logo {
+            height: 90px; /* تم تكبير الشعار ليطابق باقي الصفحات */
+            width: auto;
+            max-height: 100px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .school-logo:hover {
+            transform: scale(1.05);
+        }
+
+        [data-theme="dark"] .school-logo {
+            filter: brightness(1.2) drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
+        }
+
+        .nav-right-group {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 0.92rem;
+            transition: 0.3s;
+            padding: 6px 4px;
+        }
+
+        .nav-links li a:hover, 
+        .nav-links li a.active {
+            color: var(--accent-hover);
+        }
+
+        /* ==================== أزرار التحكم ==================== */
+        .controls-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .theme-btn, .lang-btn {
+            background: rgba(155, 193, 170, 0.15);
+            border: 1px solid var(--accent);
+            color: var(--text-dark);
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-btn:hover, .lang-btn:hover {
+            background: var(--accent);
+            color: #0b222d;
+        }
+
+        /* ==================== المحتوى الرئيسي ==================== */
+        .main-content {
+            padding: 160px 0 80px 0;
+            min-height: calc(100vh - 180px);
+        }
+
+        .about-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .about-card h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        [data-theme="dark"] .about-card h1 {
+            color: var(--accent);
+        }
+
+        .about-card p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            background: var(--primary-dark);
+            color: #ffffff;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر الموحد -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="images/Imperial Logo.png" alt="Imperial International School Logo" class="school-logo">
+            </a>
+            
+            <div class="nav-right-group">
+                <ul class="nav-links">
+                    <li><a href="index.html" data-key="nav-home">Home</a></li>
+                    <li><a href="about.html" class="active" data-key="nav-about">About Us</a></li>
+                    <li><a href="academics.html" data-key="nav-programs">Academics</a></li>
+                    <li><a href="admission.html" data-key="nav-admission">Admission</a></li>
+                    <li><a href="contact.html" data-key="nav-contact">Contact Us</a></li>
+                </ul>
+
+                <div class="controls-group">
+                    <button class="theme-btn" id="themeToggle">
+                        <i class="fa-solid fa-moon" id="themeIcon"></i>
+                    </button>
+                    <button class="lang-btn" id="langToggle">
+                        <i class="fa-solid fa-globe"></i> <span id="langText">العربية</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        <div class="container">
+            <div class="about-card">
+                <h1 data-key="about-title">About Imperial International School</h1>
+                <p data-key="about-desc">Empowering students and nurturing their intellectual and personal skills in a safe and stimulating global environment.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <p data-key="footer-text">All rights reserved © 2026 Imperial International School</p>
+        </div>
+    </footer>
+
+    <!-- جافاسكربت تشغيل الوضع الليلي وتغيير اللغة -->
+    <script>
+        const translations = {
+            ar: {
+                "school-title": "مدرسة الفخامة العالمية",
+                "school-sub": "Imperial Int. School",
+                "nav-home": "الرئيسية",
+                "nav-about": "عن المدرسة",
+                "nav-programs": "البرامج التعليمية",
+                "nav-admission": "القبول والتسجيل",
+                "nav-contact": "تواصل معنا",
+                "about-title": "عن مدرسة الفخامة العالمية",
+                "about-desc": "تمكين الطلاب وتنمية مهاراتهم الفكرية والشخصية من خلال بيئة تعليمية آمنة ومحفزة ذات معايير عالمية.",
+                "footer-text": "جميع الحقوق محفوظة © 2026 مدرسة الفخامة العالمية",
+                "lang-btn": "English"
+            },
+            en: {
+                "school-title": "Imperial Int. School",
+                "school-sub": "Global Excellence",
+                "nav-home": "Home",
+                "nav-about": "About Us",
+                "nav-programs": "Academics",
+                "nav-admission": "Admission",
+                "nav-contact": "Contact Us",
+                "about-title": "About Imperial International School",
+                "about-desc": "Empowering students and nurturing their intellectual and personal skills in a safe and stimulating global environment.",
+                "footer-text": "All rights reserved © 2026 Imperial International School",
+                "lang-btn": "العربية"
+            }
+        };
+
+        // تفعيل وضع النهار/الليل
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.className = 'fa-solid fa-sun';
+            } else {
+                themeIcon.className = 'fa-solid fa-moon';
+            }
+        }
+
+        // تفعيل تغيير اللغة
+        const langToggleBtn = document.getElementById('langToggle');
+        const langText = document.getElementById('langText');
+        
+        let currentLang = localStorage.getItem('lang') || 'en';
+        applyLanguage(currentLang);
+
+        langToggleBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            localStorage.setItem('lang', currentLang);
+            applyLanguage(currentLang);
+        });
+
+        function applyLanguage(lang) {
+            document.documentElement.setAttribute('lang', lang);
+            document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    elem.textContent = translations[lang][key];
+                }
+            });
+
+            langText.textContent = translations[lang]["lang-btn"];
+        }
+    </script>
+</body>
+</html>

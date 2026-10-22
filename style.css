@@ -1,0 +1,973 @@
+/* ==================== لوحة ألوان الشعار الرسمية الفاخرة ==================== */
+:root {
+    --primary: #184152;          /* الكحلي البترولي الداكن */
+    --primary-dark: #0b222d;     /* درجة أعمق للـ Header والـ Hero */
+    --accent: #9bc1aa;           /* الأخضر النعناعي */
+    --accent-hover: #7fae91;     /* درجة تفاعلية أغمق */
+    --accent-light: rgba(155, 193, 170, 0.15);
+    
+    --bg-light: #f7faf9;
+    --white: #ffffff;
+    --text-dark: #1f2d34;
+    --text-muted: #5c707a;
+    --header-bg: rgba(255, 255, 255, 0.95);
+    
+    --shadow-sm: 0 4px 20px rgba(24, 65, 82, 0.08);
+    --shadow-lg: 0 20px 45px rgba(24, 65, 82, 0.12);
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --glass-border: rgba(155, 193, 170, 0.3);
+    --hero-gradient: linear-gradient(135deg, #0b222d 0%, #184152 60%, #22566c 100%);
+}
+
+[data-theme="dark"] {
+    --primary: #24586e;
+    --primary-dark: #061218;
+    --accent: #aed3bc;
+    --accent-hover: #91bda1;
+    --accent-light: rgba(174, 211, 188, 0.15);
+    
+    --bg-light: #081116;
+    --white: #122129;
+    --text-dark: #f0f5f8;
+    --text-muted: #8ca2ad;
+    --header-bg: rgba(18, 33, 41, 0.95);
+    
+    --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 20px 45px rgba(0, 0, 0, 0.6);
+    --card-bg: rgba(18, 33, 41, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --hero-gradient: linear-gradient(135deg, #030a0d 0%, #08161e 60%, #102732 100%);
+}
+
+/* ==================== إعدادات عامة ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+    scroll-behavior: smooth;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+/* ==================== الهيدر الشفاف والمُثبّت ==================== */
+header {
+    background: var(--header-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+/* ==================== الشعار (Logo) - تم تكبيره ==================== */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.school-logo {
+    height: 80px; /* تم زيادة الارتفاع من 55px إلى 80px ليصبح أكبر وأوضح */
+    width: auto;
+    max-height: 90px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* في الوضع الداكن نقوم بإضافة سطوع خفيف للشعار ليظهر بدون خلفية بيضاء */
+[data-theme="dark"] .school-logo {
+    filter: brightness(1.2) drop-shadow(0 0 2px rgba(255, 255, 255, 0.2));
+}
+
+.logo-text h1 {
+    font-size: 1.2rem;
+    color: var(--primary);
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+[data-theme="dark"] .logo-text h1 {
+    color: var(--accent);
+}
+
+.logo-text span {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    display: block;
+    font-weight: 700;
+}
+
+/* ==================== القوائم والروابط ==================== */
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    padding: 8px 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .nav-arrow {
+    transform: rotate(180deg);
+}
+
+.nav-links li a:hover, 
+.nav-links li a.active {
+    color: var(--accent);
+}
+
+.highlight-link {
+    color: var(--primary) !important;
+}
+
+[data-theme="dark"] .highlight-link {
+    color: var(--accent) !important;
+}
+
+/* القائمة المنسدلة */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    min-width: 200px;
+    border-radius: 12px;
+    padding: 10px 0;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--glass-border);
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 1100;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li a {
+    padding: 10px 20px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    display: block;
+    width: 100%;
+}
+
+.dropdown-menu li a:hover {
+    background: var(--accent-light);
+    color: var(--primary);
+}
+
+[data-theme="dark"] .dropdown-menu li a:hover {
+    color: var(--accent);
+}
+
+/* ==================== أزرار التحكم (الوضع واللغة) ==================== */
+.controls-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.theme-btn, .lang-btn {
+    background: var(--accent-light);
+    border: 1px solid var(--accent);
+    color: var(--text-dark);
+    padding: 7px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.theme-btn:hover, .lang-btn:hover {
+    background: var(--accent);
+    color: #0b222d;
+    box-shadow: 0 4px 15px rgba(155, 193, 170, 0.4);
+}
+
+/* ==================== Hero Section ==================== */
+.hero {
+    position: relative;
+    background: var(--hero-gradient);
+    color: #ffffff;
+    padding: 160px 0 120px 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: var(--bg-light);
+    transform: skewY(-2.5deg);
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent);
+    padding: 8px 22px;
+    border-radius: 30px;
+    font-size: 0.88rem;
+    font-weight: 800;
+    border: 1px solid var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.hero-content h2 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    max-width: 880px;
+    margin: 0 auto 20px auto;
+    line-height: 1.25;
+}
+
+.hero-content p {
+    font-size: 1.15rem;
+    max-width: 680px;
+    margin: 0 auto 38px auto;
+    color: #d1e2db;
+}
+
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-weight: 800;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    font-size: 0.98rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #0b222d;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-3px);
+}
+
+/* ==================== الإحصائيات ==================== */
+.stats-container {
+    margin-top: -50px;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 60px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    padding: 24px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-card h3 {
+    font-size: 2.3rem;
+    color: var(--primary);
+    font-weight: 900;
+}
+
+[data-theme="dark"] .stat-card h3 {
+    color: var(--accent);
+}
+
+.stat-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+/* ==================== الفوتر ==================== */
+footer {
+    background: var(--primary-dark);
+    color: #ffffff;
+    padding: 40px 0 25px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 60px;
+}
+/* ==================== لوحة ألوان الشعار الرسمية الفاخرة ==================== */
+:root {
+    --primary: #184152;          /* الكحلي البترولي الداكن */
+    --primary-dark: #0b222d;     /* درجة أعمق للـ Header والـ Hero */
+    --accent: #9bc1aa;           /* الأخضر النعناعي */
+    --accent-hover: #7fae91;     /* درجة تفاعلية أغمق */
+    --accent-light: rgba(155, 193, 170, 0.15);
+    
+    --bg-light: #f7faf9;
+    --white: #ffffff;
+    --text-dark: #1f2d34;
+    --text-muted: #5c707a;
+    --header-bg: rgba(255, 255, 255, 0.95);
+    
+    --shadow-sm: 0 4px 20px rgba(24, 65, 82, 0.08);
+    --shadow-lg: 0 20px 45px rgba(24, 65, 82, 0.12);
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --glass-border: rgba(155, 193, 170, 0.3);
+    --hero-gradient: linear-gradient(135deg, #0b222d 0%, #184152 60%, #22566c 100%);
+}
+
+[data-theme="dark"] {
+    --primary: #24586e;
+    --primary-dark: #061218;
+    --accent: #aed3bc;
+    --accent-hover: #91bda1;
+    --accent-light: rgba(174, 211, 188, 0.15);
+    
+    --bg-light: #081116;
+    --white: #122129;
+    --text-dark: #f0f5f8;
+    --text-muted: #8ca2ad;
+    --header-bg: rgba(18, 33, 41, 0.95);
+    
+    --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 20px 45px rgba(0, 0, 0, 0.6);
+    --card-bg: rgba(18, 33, 41, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --hero-gradient: linear-gradient(135deg, #030a0d 0%, #08161e 60%, #102732 100%);
+}
+
+/* ==================== إعدادات عامة ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+    scroll-behavior: smooth;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+/* ==================== الهيدر الشفاف والمُثبّت ==================== */
+header {
+    background: var(--header-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+/* ==================== الشعار (Logo) - حجم كبير وواضح ==================== */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.school-logo {
+    height: 90px; /* تم تكبير الارتفاع ليظهر بحجم ممتاز وبارز */
+    width: auto;
+    max-height: 100px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+[data-theme="dark"] .school-logo {
+    filter: brightness(1.2) drop-shadow(0 0 2px rgba(255, 255, 255, 0.2));
+}
+
+.logo-text h1 {
+    font-size: 1.3rem;
+    color: var(--primary);
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+[data-theme="dark"] .logo-text h1 {
+    color: var(--accent);
+}
+
+.logo-text span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: block;
+    font-weight: 700;
+}
+
+/* ==================== القوائم والروابط ==================== */
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    padding: 8px 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .nav-arrow {
+    transform: rotate(180deg);
+}
+
+.nav-links li a:hover, 
+.nav-links li a.active {
+    color: var(--accent);
+}
+
+.highlight-link {
+    color: var(--primary) !important;
+}
+
+[data-theme="dark"] .highlight-link {
+    color: var(--accent) !important;
+}
+
+/* القائمة المنسدلة */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    min-width: 200px;
+    border-radius: 12px;
+    padding: 10px 0;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--glass-border);
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 1100;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li a {
+    padding: 10px 20px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    display: block;
+    width: 100%;
+}
+
+.dropdown-menu li a:hover {
+    background: var(--accent-light);
+    color: var(--primary);
+}
+
+[data-theme="dark"] .dropdown-menu li a:hover {
+    color: var(--accent);
+}
+
+/* ==================== أزرار التحكم (الوضع واللغة) ==================== */
+.controls-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.theme-btn, .lang-btn {
+    background: var(--accent-light);
+    border: 1px solid var(--accent);
+    color: var(--text-dark);
+    padding: 7px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.theme-btn:hover, .lang-btn:hover {
+    background: var(--accent);
+    color: #0b222d;
+    box-shadow: 0 4px 15px rgba(155, 193, 170, 0.4);
+}
+
+/* ==================== Hero Section ==================== */
+.hero {
+    position: relative;
+    background: var(--hero-gradient);
+    color: #ffffff;
+    padding: 160px 0 120px 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: var(--bg-light);
+    transform: skewY(-2.5deg);
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent);
+    padding: 8px 22px;
+    border-radius: 30px;
+    font-size: 0.88rem;
+    font-weight: 800;
+    border: 1px solid var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.hero-content h2 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    max-width: 880px;
+    margin: 0 auto 20px auto;
+    line-height: 1.25;
+}
+
+.hero-content p {
+    font-size: 1.15rem;
+    max-width: 680px;
+    margin: 0 auto 38px auto;
+    color: #d1e2db;
+}
+
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-weight: 800;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    font-size: 0.98rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #0b222d;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-3px);
+}
+
+/* ==================== الإحصائيات ==================== */
+.stats-container {
+    margin-top: -50px;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 60px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    padding: 24px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-card h3 {
+    font-size: 2.3rem;
+    color: var(--primary);
+    font-weight: 900;
+}
+
+[data-theme="dark"] .stat-card h3 {
+    color: var(--accent);
+}
+
+.stat-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+/* ==================== الفوتر بتصميم البطاقات الفاخرة ==================== */
+footer {
+    background: var(--primary-dark);
+    color: #ffffff;
+    padding: 60px 0 30px 0;
+    margin-top: 80px;
+    border-top: 1px solid var(--glass-border);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.footer-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.footer-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.footer-card h4 {
+    color: var(--accent);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.footer-card p, .footer-card ul {
+    color: #d1e2db;
+    font-size: 0.9rem;
+    list-style: none;
+}
+
+.footer-card ul li {
+    margin-bottom: 8px;
+}
+
+.footer-card ul li a {
+    color: #d1e2db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-card ul li a:hover {
+    color: var(--accent);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.88rem;
+    color: var(--text-muted);
+}
+/* ==================== قسم بطاقات الخدمات (Explore Our Services) ==================== */
+.features-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.section-title h2 {
+    font-size: 2.2rem;
+    color: var(--primary);
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+[data-theme="dark"] .section-title h2 {
+    color: var(--accent);
+}
+
+.title-line {
+    width: 70px;
+    height: 4px;
+    background: var(--accent);
+    margin: 0 auto 40px auto;
+    border-radius: 2px;
+}
+
+/* التنسيق الشبكي للبطاقات (عرض أفقي متناسق) */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    align-items: stretch;
+}
+
+/* بطاقة الخدمة الفردية */
+.feature-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 35px 25px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
+}
+
+/* خلفية ودائرة الأيقونة */
+.icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background: var(--accent-light);
+    color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .icon-wrapper {
+    color: var(--accent);
+}
+
+.feature-card:hover .icon-wrapper {
+    background: var(--accent);
+    color: #0b222d;
+    transform: scale(1.1);
+}
+
+/* نصوص البطاقة */
+.feature-card h3 {
+    font-size: 1.35rem;
+    color: var(--primary);
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+[data-theme="dark"] .feature-card h3 {
+    color: var(--text-dark);
+}
+
+.feature-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* أزرار البطاقات */
+.feature-card .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+    font-size: 0.95rem;
+    border-radius: 10px;
+}
+/* ==================== الهيدر الشفاف والمُثبّت ==================== */
+header {
+    background: var(--header-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 8px 0; /* تم تقليل الحشو ليتسق مع تكبير اللوجو */
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ==================== الشعار (Logo) كبيـر جداً وواضح ==================== */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.school-logo {
+    height: 110px; /* تم زيادة الارتفاع ليكون بارزاً وأكبر حجماً */
+    width: auto;
+    max-height: 120px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.school-logo:hover {
+    transform: scale(1.05); /* تأثير تكبير لطيف عند مرور الماوس */
+}
+
+/* التوافق مع الوضع الداكن */
+[data-theme="dark"] .school-logo {
+    filter: brightness(1.2) drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));
+}

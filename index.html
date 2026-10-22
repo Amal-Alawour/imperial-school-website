@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="htmlRoot" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-ar="مدرسة الفخامة العالمية | الرئيسية">Imperial Int. School | Home</title>
+    
+    <!-- الخطوط والأيقونات -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ربط ملف الـ CSS المنفصل -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- الهيدر العصري المحدث بالكامل -->
+    <header id="header">
+        <div class="container nav-container">
+            <!-- الشعار مع المسار الصحيح المحدث وحجم أكبر -->
+            <a href="index.html" class="logo-container">
+                <img src="images/imperial-logo.png" alt="Imperial International School Logo" class="school-logo">
+            </a>
+            
+            <!-- قائمة التنقل المنسدلة -->
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active" data-ar="الرئيسية">Home</a></li>
+                    
+                    <!-- About Us (Dropdown) -->
+                    <li class="dropdown">
+                        <a href="about.html" class="dropdown-btn" data-ar="عنّا">
+                            About Us <i class="fas fa-chevron-down nav-arrow"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html#calendar" data-ar="التقويم الدراسي">Academic Calendar</a></li>
+                            <li><a href="about.html#profile" data-ar="الملف التعريفي">School Profile</a></li>
+                            <li><a href="about.html#guide" data-ar="دليل المدرسة">School Guide</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Gallery (Dropdown) -->
+                    <li class="dropdown">
+                        <a href="#gallery" class="dropdown-btn" data-ar="معرض الأنشطة">
+                            Activities Gallery <i class="fas fa-chevron-down nav-arrow"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#campus-landmarks" data-ar="أبرز معالم الحرم المدرسي">Campus Landmarks</a></li>
+                            <li><a href="#events" data-ar="أحداث وفعاليات">Events & Activities</a></li>
+                            <li><a href="#ceremonies" data-ar="الاحتفالات والمراسم">Celebrations & Ceremonies</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Weekly Plan (Dropdown) -->
+                    <li class="dropdown">
+                        <a href="weekly-plan.html" class="dropdown-btn" data-ar="الخطة الأسبوعية">
+                            Weekly Plan <i class="fas fa-chevron-down nav-arrow"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="weekly-plan.html#schedules" data-ar="جداول الفصول">Class Schedules</a></li>
+                            <li><a href="weekly-plan.html#weekly-plans" data-ar="الخطة الأسبوعية">Weekly Plans</a></li>
+                            <li><a href="weekly-plan.html#exams" data-ar="جداول الاختبارات والمهارات">Exam Schedules</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Student Bag (Dropdown) -->
+                    <li class="dropdown">
+                        <a href="#student-bag" class="dropdown-btn" data-ar="حقيبة الطالب">
+                            Student Bag <i class="fas fa-chevron-down nav-arrow"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#book-list" data-ar="قائمة الكتب">Book List</a></li>
+                            <li><a href="#dress-code" data-ar="دليل الزي المدرسي">Uniform Guide</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Apply Now (Dropdown) -->
+                    <li class="dropdown">
+                        <a href="admission.html" class="dropdown-btn highlight-link" data-ar="تَقدَّم الآن">
+                            Apply Now <i class="fas fa-chevron-down nav-arrow"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="admission.html#conditions" data-ar="شروط القبول">Admission Terms</a></li>
+                            <li><a href="admission.html#requirements" data-ar="ملف متطلبات التطبيق">Application Requirements</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Contact Us -->
+                    <li><a href="contact.html" data-ar="تواصل معنا">Contact Us</a></li>
+                    
+                    <!-- أزرار اللغة والوضع الليلي -->
+                    <li>
+                        <div class="controls-group">
+                            <button type="button" onclick="toggleTheme()" class="theme-btn" id="themeBtn" title="Change Theme">
+                                <i class="fas fa-moon" id="themeIcon"></i>
+                            </button>
+                            <button type="button" onclick="switchLanguage()" class="lang-btn" title="Switch Language">
+                                <i class="fas fa-globe"></i> <span id="langText">العربية</span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- واجهة البانر الرئيسية Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container hero-content">
+            <span class="badge" data-ar="تعليم عالمي بلمسة فخمة">
+                <i class="fas fa-crown"></i> Global Education with Luxury Touch
+            </span>
+            <h2 data-ar="نصنع قادة الغد بمعايير عالمية وبيئة تعليمية متطورة">
+                Shaping Tomorrow's Leaders with World-Class Standards
+            </h2>
+            <p data-ar="في مدرسة الفخامة العالمية، ندمج الأصالة مع المناهج الحديثة لتقديم تجربة تعليمية فريدة تكتشف مواهب أطفالك وتنميها.">
+                At Imperial International School, we blend tradition with modern curricula to offer a unique educational experience that discovers and fosters your children's talents.
+            </p>
+            <div class="hero-btns">
+                <a href="https://me.classera.com/teacher/users/login#networkfirst" target="_blank" class="btn btn-primary" data-ar="منصة كلاسيرا">
+                    <i class="fas fa-graduation-cap"></i> Classera Platform
+                </a>
+                <a href="weekly-plan.html" class="btn btn-secondary" data-ar="الخطط الأسبوعية">
+                    Weekly Plans <i class="fas fa-arrow-right icon-dir"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- شريط الإحصائيات -->
+    <section class="container stats-container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>100%</h3>
+                <p data-ar="الاعتماد الأكاديمي الدولي">International Accreditation</p>
+            </div>
+            <div class="stat-card">
+                <h3>+1,200</h3>
+                <p data-ar="طالب وطالبة">Enrolled Students</p>
+            </div>
+            <div class="stat-card">
+                <h3>+85</h3>
+                <p data-ar="معلم وخبير أكاديمي">Expert Educators</p>
+            </div>
+            <div class="stat-card">
+                <h3>100%</h3>
+                <p data-ar="معدل قبول الجامعات">University Pass Rate</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- بطاقات الخدمات -->
+    <section class="features-section container">
+        <div class="section-title">
+            <h2 data-ar="استكشف خدمات المدرسة">Explore Our School Services</h2>
+            <div class="title-line"></div>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div>
+                    <div class="icon-wrapper"><i class="fas fa-school"></i></div>
+                    <h3 data-ar="عن المدرسة">About Us</h3>
+                    <p data-ar="تعرف على رؤيتنا ورسالتنا والتقويم الدراسي بدليل المدرسة.">Discover our vision, core values, leadership, and comprehensive school guide.</p>
+                </div>
+                <a href="about.html" class="btn btn-primary" data-ar="اقرأ المزيد">Read More</a>
+            </div>
+
+            <div class="feature-card">
+                <div>
+                    <div class="icon-wrapper"><i class="fas fa-calendar-alt"></i></div>
+                    <h3 data-ar="الخطط الأسبوعية">Weekly Plans</h3>
+                    <p data-ar="متابعة الجداول والواجبات والاختبارات أسبوعياً لكافة المراحل.">Easily access weekly learning schedules, homework, and exam calendars.</p>
+                </div>
+                <a href="weekly-plan.html" class="btn btn-primary" data-ar="عرض الخطط">View Plans</a>
+            </div>
+
+            <div class="feature-card">
+                <div>
+                    <div class="icon-wrapper"><i class="fas fa-laptop-code"></i></div>
+                    <h3 data-ar="دخول كلاسيرا">Classera Login</h3>
+                    <p data-ar="متابعة المواد الدراسية والدرجات والفصول الذكية عبر كلاسيرا.">Access your courses, grades, and smart classrooms through Classera.</p>
+                </div>
+                <a href="https://me.classera.com/teacher/users/login#networkfirst" target="_blank" class="btn btn-primary" data-ar="الدخول للمنصة">Go to Classera</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر بتصميم البطاقات الفاخرة -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-card">
+                    <h4 data-ar="عن المدرسة">About School</h4>
+                    <p data-ar="مدرسة الفخامة العالمية تقدم تعليماً متطوراً يجمع بين الأصالة والمعاصرة.">Imperial International School provides advanced education blending tradition and modernity.</p>
+                </div>
+                <div class="footer-card">
+                    <h4 data-ar="روابط سريعة">Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html" data-ar="الرئيسية">Home</a></li>
+                        <li><a href="about.html" data-ar="عنّا">About Us</a></li>
+                        <li><a href="weekly-plan.html" data-ar="الخطط الأسبوعية">Weekly Plan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-card">
+                    <h4 data-ar="تواصل معنا">Contact Us</h4>
+                    <p data-ar="للاتصال والاستفسار يجود الدعم المستمر عبر قنواتنا الرسمية.">For support and inquiries, reach out through our official channels.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-key="footer-text" data-ar="جميع الحقوق محفوظة © 2026 مدرسة الفخامة العالمية">All Rights Reserved © 2026 Imperial International School</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- سكريبت التفاعل اللغوي والثيم -->
+    <script>
+        function toggleTheme() {
+            const htmlRoot = document.getElementById('htmlRoot');
+            const themeIcon = document.getElementById('themeIcon');
+            const currentTheme = htmlRoot.getAttribute('data-theme');
+
+            if (currentTheme === 'light') {
+                htmlRoot.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                htmlRoot.setAttribute('data-theme', 'light');
+                themeIcon.className = 'fas fa-moon';
+            }
+        }
+
+        let currentLang = 'en';
+
+        function switchLanguage() {
+            const htmlRoot = document.getElementById('htmlRoot');
+            const langText = document.getElementById('langText');
+            const elementsToTranslate = document.querySelectorAll('[data-ar]');
+
+            if (currentLang === 'en') {
+                currentLang = 'ar';
+                htmlRoot.setAttribute('dir', 'rtl');
+                htmlRoot.setAttribute('lang', 'ar');
+                if (langText) langText.innerText = 'English';
+
+                elementsToTranslate.forEach(el => {
+                    if (!el.hasAttribute('data-en')) {
+                        el.setAttribute('data-en', el.innerText);
+                    }
+                    
+                    const arText = el.getAttribute('data-ar');
+                    if (arText) {
+                        const arrow = el.querySelector('.nav-arrow');
+                        const icon = el.querySelector('i');
+                        
+                        if (arrow) {
+                            el.childNodes[0].textContent = arText + ' ';
+                        } else if (icon) {
+                            el.innerHTML = icon.outerHTML + ' ' + arText;
+                        } else {
+                            el.innerText = arText;
+                        }
+                    }
+                });
+            } else {
+                currentLang = 'en';
+                htmlRoot.setAttribute('dir', 'ltr');
+                htmlRoot.setAttribute('lang', 'en');
+                if (langText) langText.innerText = 'العربية';
+
+                elementsToTranslate.forEach(el => {
+                    if (el.hasAttribute('data-en')) {
+                        const enText = el.getAttribute('data-en');
+                        const arrow = el.querySelector('.nav-arrow');
+                        const icon = el.querySelector('i');
+                        
+                        if (arrow) {
+                            el.childNodes[0].textContent = enText + ' ';
+                        } else if (icon) {
+                            el.innerHTML = icon.outerHTML + ' ' + enText;
+                        } else {
+                            el.innerText = enText;
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>
