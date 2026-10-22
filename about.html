@@ -61,7 +61,7 @@
             margin: 0 auto;
         }
 
-        /* ==================== الهيدر والشعار المحدث ==================== */
+        /* ==================== الهيدر والشعار ==================== */
         header {
             background: var(--header-bg);
             backdrop-filter: blur(16px);
@@ -102,10 +102,6 @@
             transform: scale(1.05);
         }
 
-        [data-theme="dark"] .school-logo {
-            filter: brightness(1.2) drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
-        }
-
         .nav-right-group {
             display: flex;
             align-items: center;
@@ -133,7 +129,6 @@
             color: var(--accent-hover);
         }
 
-        /* ==================== أزرار التحكم ==================== */
         .controls-group {
             display: flex;
             gap: 10px;
@@ -172,7 +167,11 @@
             border-radius: 20px;
             border: 1px solid var(--glass-border);
             box-shadow: var(--shadow-sm);
+<<<<<<< HEAD
             margin-bottom: 40px;
+=======
+            margin-bottom: 30px;
+>>>>>>> c5a369e (Add Vision.pdf file)
         }
 
         .about-card h1 {
@@ -191,13 +190,21 @@
             color: var(--text-muted);
         }
 
+<<<<<<< HEAD
         /* ==================== قسم ملف المدرسة PDF ==================== */
+=======
+        /* ==================== قسم ملفات الـ PDF ==================== */
+>>>>>>> c5a369e (Add Vision.pdf file)
         .pdf-section {
             background: var(--white);
             padding: 30px;
             border-radius: 20px;
             border: 1px solid var(--glass-border);
             box-shadow: var(--shadow-sm);
+<<<<<<< HEAD
+=======
+            margin-bottom: 40px;
+>>>>>>> c5a369e (Add Vision.pdf file)
         }
 
         .pdf-header {
@@ -269,7 +276,10 @@
     <header>
         <div class="container nav-container">
             <a href="index.html" class="logo-container">
+<<<<<<< HEAD
                 <!-- تم تصحيح مسار واسم صورة اللوجو هنا -->
+=======
+>>>>>>> c5a369e (Add Vision.pdf file)
                 <img src="images/imperial-logo.png" alt="Imperial International School Logo" class="school-logo">
             </a>
             
@@ -303,7 +313,27 @@
                 <p data-key="about-desc">Empowering students and nurturing their intellectual and personal skills in a safe and stimulating global environment.</p>
             </div>
 
+<<<<<<< HEAD
             <!-- قسم ملف المدرسة (Profile Section) الذي سينقل المستخدم إليه الهيدر -->
+=======
+            <!-- 1. قسم ملف الرؤية والرسالة Vision PDF -->
+            <section class="pdf-section" id="vision">
+                <div class="pdf-header">
+                    <h2><i class="fa-solid fa-eye"></i> <span data-key="vision-title">Vision & Mission</span></h2>
+                    <a href="IIS Profile/Vision.pdf" download class="download-btn">
+                        <i class="fa-solid fa-download"></i> <span data-key="pdf-download">Download PDF</span>
+                    </a>
+                </div>
+
+                <div class="pdf-frame-container">
+                    <iframe src="IIS Profile/Vision.pdf">
+                        <p>Your browser does not support embedded PDFs. <a href="IIS Profile/Vision.pdf">Click here to download</a>.</p>
+                    </iframe>
+                </div>
+            </section>
+
+            <!-- 2. قسم ملف بروفايل المدرسة School Profile PDF -->
+>>>>>>> c5a369e (Add Vision.pdf file)
             <section class="pdf-section" id="profile">
                 <div class="pdf-header">
                     <h2><i class="fa-solid fa-file-pdf"></i> <span data-key="pdf-title">School Profile</span></h2>
@@ -328,12 +358,10 @@
         </div>
     </footer>
 
-    <!-- جافاسكربت تشغيل الوضع الليلي وتغيير اللغة -->
+    <!-- السكربت للتحكم بالوضع واللغة -->
     <script>
         const translations = {
             ar: {
-                "school-title": "مدرسة الفخامة العالمية",
-                "school-sub": "Imperial Int. School",
                 "nav-home": "الرئيسية",
                 "nav-about": "عن المدرسة",
                 "nav-programs": "البرامج التعليمية",
@@ -341,14 +369,16 @@
                 "nav-contact": "تواصل معنا",
                 "about-title": "عن مدرسة الفخامة العالمية",
                 "about-desc": "تمكين الطلاب وتنمية مهاراتهم الفكرية والشخصية من خلال بيئة تعليمية آمنة ومحفزة ذات معايير عالمية.",
+<<<<<<< HEAD
+=======
+                "vision-title": "الرؤية والرسالة",
+>>>>>>> c5a369e (Add Vision.pdf file)
                 "pdf-title": "الملف التعريفي للمدرسة",
                 "pdf-download": "تحميل الملف (PDF)",
                 "footer-text": "جميع الحقوق محفوظة © 2026 مدرسة الفخامة العالمية",
                 "lang-btn": "English"
             },
             en: {
-                "school-title": "Imperial Int. School",
-                "school-sub": "Global Excellence",
                 "nav-home": "Home",
                 "nav-about": "About Us",
                 "nav-programs": "Academics",
@@ -356,6 +386,10 @@
                 "nav-contact": "Contact Us",
                 "about-title": "About Imperial International School",
                 "about-desc": "Empowering students and nurturing their intellectual and personal skills in a safe and stimulating global environment.",
+<<<<<<< HEAD
+=======
+                "vision-title": "Vision & Mission",
+>>>>>>> c5a369e (Add Vision.pdf file)
                 "pdf-title": "School Profile",
                 "pdf-download": "Download PDF",
                 "footer-text": "All rights reserved © 2026 Imperial International School",
@@ -363,7 +397,6 @@
             }
         };
 
-        // تفعيل وضع النهار/الليل
         const themeToggleBtn = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         
@@ -388,7 +421,6 @@
             }
         }
 
-        // تفعيل تغيير اللغة
         const langToggleBtn = document.getElementById('langToggle');
         const langText = document.getElementById('langText');
         
