@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* ==================== المتغيرات ولوحة الألوان ==================== */
         :root {
             --primary: #184152;
             --primary-dark: #0b222d;
@@ -61,11 +60,9 @@
             margin: 0 auto;
         }
 
-        /* ==================== الهيدر والشعار المحدث ==================== */
         header {
             background: var(--header-bg);
             backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
             position: fixed;
             top: 0;
             left: 0;
@@ -82,27 +79,9 @@
             align-items: center;
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            flex-shrink: 0;
-        }
-
-        .school-logo {
-            height: 90px; /* تم تكبير اللوجو بشكل بارز وواضح */
-            width: auto;
-            max-height: 100px;
+        .logo-container img {
+            height: 90px;
             object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-
-        .school-logo:hover {
-            transform: scale(1.05);
-        }
-
-        [data-theme="dark"] .school-logo {
-            filter: brightness(1.2) drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
         }
 
         .nav-right-group {
@@ -132,7 +111,6 @@
             color: var(--accent-hover);
         }
 
-        /* ==================== أزرار التحكم ==================== */
         .controls-group {
             display: flex;
             gap: 10px;
@@ -151,7 +129,6 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            transition: all 0.3s ease;
         }
 
         .theme-btn:hover, .lang-btn:hover {
@@ -159,170 +136,167 @@
             color: #0b222d;
         }
 
-        /* ==================== المحتوى الرئيسي ==================== */
         .main-content {
             padding: 160px 0 80px 0;
-            min-height: calc(100vh - 120px);
         }
 
-        .contact-card {
+        .contact-hero {
             background: var(--white);
             padding: 40px;
             border-radius: 20px;
             border: 1px solid var(--glass-border);
             box-shadow: var(--shadow-sm);
+            margin-bottom: 40px;
+            text-align: center;
         }
 
-        .contact-card h1 {
-            font-size: 2.2rem;
+        .contact-hero h1 {
+            font-size: 2.5rem;
             font-weight: 900;
-            margin-bottom: 10px;
             color: var(--primary);
+            margin-bottom: 10px;
         }
 
-        [data-theme="dark"] .contact-card h1 {
+        [data-theme="dark"] .contact-hero h1 {
             color: var(--accent);
         }
 
-        .contact-card p.subtitle {
+        .contact-hero p {
             font-size: 1.1rem;
             color: var(--text-muted);
-            margin-bottom: 35px;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        .contact-grid {
+        .sections-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
         }
 
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 20px;
-            background: var(--accent-light);
-            border-radius: 15px;
-            border: 1px solid var(--glass-border);
-        }
-
-        .info-item i {
-            font-size: 1.8rem;
-            color: var(--primary);
+        .section-card {
             background: var(--white);
-            width: 55px;
-            height: 55px;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .section-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: 50%;
+            gap: 10px;
+            border-bottom: 2px solid var(--accent-light);
+            padding-bottom: 10px;
+        }
+
+        [data-theme="dark"] .section-card h3 {
+            color: var(--accent);
+        }
+
+        .contact-person {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--glass-border);
+        }
+
+        .contact-person:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .contact-person span.title {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .contact-person h4 {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            font-weight: 800;
+            margin: 3px 0;
+        }
+
+        .contact-person a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+            background: var(--accent-light);
+            padding: 6px 12px;
+            border-radius: 10px;
+            margin-top: 5px;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        [data-theme="dark"] .contact-person a {
+            color: var(--accent);
+        }
+
+        .contact-person a:hover {
+            background: var(--accent);
+            color: #0b222d;
+        }
+
+        .info-extras-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .extra-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
             box-shadow: var(--shadow-sm);
         }
 
-        [data-theme="dark"] .info-item i {
+        .extra-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        [data-theme="dark"] .extra-card h3 {
             color: var(--accent);
         }
 
-        .info-item h4 {
-            font-size: 1.1rem;
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent);
+            color: #0b222d;
+            padding: 12px 25px;
+            border-radius: 12px;
+            text-decoration: none;
             font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 4px;
+            margin-top: 15px;
+            transition: 0.3s;
         }
 
-        .info-item p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            font-weight: 600;
+        .map-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
         }
 
         footer {
             background: var(--primary-dark);
             color: #ffffff;
-            padding: 30px 0;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- الهيدر الموحد -->
-    <header>
-        <div class="container nav-container">
-            <a href="index.html" class="logo-container">
-                <img src="images/Imperial Logo.png" alt="Imperial International School Logo" class="school-logo">
-            </a>
-            
-            <div class="nav-right-group">
-                <ul class="nav-links">
-                    <li><a href="index.html" data-key="nav-home">Home</a></li>
-                    <li><a href="about.html" data-key="nav-about">About Us</a></li>
-                    <li><a href="academics.html" data-key="nav-programs">Academics</a></li>
-                    <li><a href="admission.html" data-key="nav-admission">Admission</a></li>
-                    <li><a href="contact.html" class="active" data-key="nav-contact">Contact Us</a></li>
-                </ul>
-
-                <div class="controls-group">
-                    <button class="theme-btn" id="themeToggle">
-                        <i class="fa-solid fa-moon" id="themeIcon"></i>
-                    </button>
-                    <button class="lang-btn" id="langToggle">
-                        <i class="fa-solid fa-globe"></i> <span id="langText">العربية</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- المحتوى الرئيسي -->
-    <main class="main-content">
-        <div class="container">
-            <div class="contact-card">
-                <h1 data-key="contact-title">Contact Us</h1>
-                <p class="subtitle" data-key="contact-sub">We are here to answer all your inquiries</p>
-                
-                <div class="contact-grid">
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4 data-key="location-title">Location</h4>
-                            <p data-key="location-desc">Saudi Arabia, Main Campus</p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4 data-key="phone-title">Phone</h4>
-                            <p>+966 12 345 6789</p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4 data-key="email-title">Email</h4>
-                            <p>info@imperialschool.edu.sa</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- الفوتر -->
-    <footer>
-        <div class="container">
-            <p data-key="footer-text">All rights reserved © 2026 Imperial International School</p>
-        </div>
-    </footer>
-
-    <!-- سكربت التحكم باللغة والثيم -->
-    <script>
-        const translations = {
-            ar: {
-                "school-title": "مدرسة الفخامة العالمية",
-                "school-sub": "Imperial Int. School",
-                "nav-home": "الرئيسية",
-                "nav-
+            padding: 30px 0
