@@ -299,4 +299,196 @@
         footer {
             background: var(--primary-dark);
             color: #ffffff;
-            padding: 30px 0
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر الموحد -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="images/imperial-logo.png" alt="Logo" class="school-logo">
+            </a>
+            
+            <div class="nav-right-group">
+                <ul class="nav-links">
+                    <li><a href="index.html" data-ar="الرئيسية">Home</a></li>
+                    <li><a href="about.html" data-ar="عن المدرسة">About Us</a></li>
+                    <li><a href="contact.html" class="active" data-ar="تواصل معنا">Contact Us</a></li>
+                </ul>
+
+                <div class="controls-group">
+                    <button class="theme-btn" id="themeToggle" onclick="toggleTheme()">
+                        <i class="fas fa-moon" id="themeIcon"></i>
+                    </button>
+                    <button class="lang-btn" id="langToggle" onclick="switchLanguage()">
+                        <i class="fas fa-globe"></i> <span id="langText">العربية</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        <div class="container">
+            
+            <div class="contact-hero">
+                <h1 data-ar="تواصل معنا">Contact Us</h1>
+                <p data-ar="أولياء الأمور الكرام، نود تنظيم قائمة أرقام الهواتف التي تخص مدرستنا والتي تحتاجونها في حال احتجتم إجابة لأي استفسار.">
+                    Dear parents, we would like to organize the list of phone numbers related to our school that you might need for any inquiry.
+                </p>
+            </div>
+
+            <!-- أقسام المدرسة والمشرفات -->
+            <div class="sections-grid">
+                
+                <!-- المشرفات والأقسام الإدارية -->
+                <div class="section-card">
+                    <h3 data-ar="مشرفات الأقسام الإدارية"><i class="fas fa-user-tie"></i> Administrative Supervisors</h3>
+                    
+                    <div class="contact-person">
+                        <span class="title" data-ar="مشرفة قسم الروضات والصفوف (9-11)">KG section & Grades (9-11) Supervisor</span>
+                        <h4 data-ar="ريم الجحدلي">Reem Al-Jahdali</h4>
+                        <a href="tel:+966550051338"><i class="fas fa-phone-alt"></i> +966 55 005 1338</a>
+                    </div>
+
+                    <div class="contact-person">
+                        <span class="title" data-ar="مشرفة قسم البنات (الصفوف 1-7)">Girls section supervisor (Grades 1-7)</span>
+                        <h4 data-ar="روتانا باديان">Rotana Badian</h4>
+                        <a href="tel:+96656099676"><i class="fas fa-phone-alt"></i> +966 56 099 676</a>
+                    </div>
+
+                    <div class="contact-person">
+                        <span class="title" data-ar="مشرفة قسم البنين (الصفوف 1-6) والصف 12 بنات">Boys section (Grades 1-6) & Grade 12 Girls</span>
+                        <h4 data-ar="عبير الهلالي">Abeer Al-Hilali</h4>
+                        <a href="tel:+966558669211"><i class="fas fa-phone-alt"></i> +966 55 866 9211</a>
+                    </div>
+                </div>
+
+                <!-- الشؤون الأكاديمية والتقنية والشكاوي -->
+                <div class="section-card">
+                    <h3 data-ar="الشؤون الأكاديمية والتقنية"><i class="fas fa-graduation-cap"></i> Academic & Technical Support</h3>
+                    
+                    <div class="contact-person">
+                        <span class="title" data-ar="المسؤولة الأكاديمية (المناهج والمعلمات)">Academic Principal</span>
+                        <h4 data-ar="داليا حمام">Dalia Hamam</h4>
+                        <a href="tel:+966506314803"><i class="fas fa-phone-alt"></i> +966 50 631 4803</a>
+                    </div>
+
+                    <div class="contact-person">
+                        <span class="title" data-ar="الآي تي ومسؤولة كلاسيرا والحلول التقنية والبرمجية">IT & Classera, Technical & Software Solutions</span>
+                        <h4 data-ar="أمل العاوور">Amal Al-Aawour</h4>
+                        <a href="tel:+966544234887"><i class="fas fa-phone-alt"></i> +966 54 423 4887</a>
+                    </div>
+
+                    <div class="contact-person">
+                        <span class="title" data-ar="رقم الشكاوي العامة">General Complaints Number</span>
+                        <h4 data-ar="قسم الشكاوي والاستفسارات">Complaints Department</h4>
+                        <a href="tel:+966551691455"><i class="fas fa-phone-alt"></i> +966 55 169 1455</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ساعات العمل وموقع المدرسة الجديد -->
+            <div class="info-extras-grid">
+                
+                <div class="extra-card">
+                    <h3 data-ar="ساعات العمل الرسمية"><i class="fas fa-clock"></i> Working Hours</h3>
+                    <p data-ar="ساعات العمل خلال الأسبوع من الأحد إلى الخميس. يبدأ اليوم الدراسي في الساعة 8:00 صباحًا وينتهي في الساعة 2:05 ظهرًا.">
+                        Working hours during the week from Sunday to Thursday. School day starts at 8:00 am and ends at 2:05 pm.
+                    </p>
+                </div>
+
+                <div class="extra-card">
+                    <h3 data-ar="موقع المدرسة الجغرافي (الجديد)"><i class="fas fa-map-marked-alt"></i> School Location (New)</h3>
+                    <p data-ar="يسعدنا زيارتكم لمقر المدرسة الجديد. اضغط على الزر أدناه لعرض الموقع عبر خريطة جوجل:">
+                        We are glad to have you visit our new campus. Click below to view the new location on Google Maps:
+                    </p>
+                    <a href="https://maps.app.goo.gl/rZ9hbid7keHauVdE6" target="_blank" class="map-btn" data-ar="فتح الموقع الجديد على الخريطة">
+                        <i class="fas fa-external-link-alt"></i> Open New Location Map
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <p data-ar="جميع الحقوق محفوظة © 2026 مدرسة الفخامة العالمية">All Rights Reserved © 2026 Imperial International School</p>
+        </div>
+    </footer>
+
+    <!-- السكربت للتحكم بالثيم واللغة -->
+    <script>
+        function toggleTheme() {
+            const htmlRoot = document.getElementById('htmlRoot');
+            const themeIcon = document.getElementById('themeIcon');
+            const currentTheme = htmlRoot.getAttribute('data-theme');
+
+            if (currentTheme === 'light') {
+                htmlRoot.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                htmlRoot.setAttribute('data-theme', 'light');
+                themeIcon.className = 'fas fa-moon';
+            }
+        }
+
+        let currentLang = 'en';
+
+        function switchLanguage() {
+            const htmlRoot = document.getElementById('htmlRoot');
+            const langText = document.getElementById('langText');
+            const elementsToTranslate = document.querySelectorAll('[data-ar]');
+
+            if (currentLang === 'en') {
+                currentLang = 'ar';
+                htmlRoot.setAttribute('dir', 'rtl');
+                htmlRoot.setAttribute('lang', 'ar');
+                if (langText) langText.innerText = 'English';
+
+                elementsToTranslate.forEach(el => {
+                    if (!el.hasAttribute('data-en')) {
+                        el.setAttribute('data-en', el.innerText);
+                    }
+                    const arText = el.getAttribute('data-ar');
+                    if (arText) {
+                        const icon = el.querySelector('i');
+                        if (icon) {
+                            el.innerHTML = icon.outerHTML + ' ' + arText;
+                        } else {
+                            el.innerText = arText;
+                        }
+                    }
+                });
+            } else {
+                currentLang = 'en';
+                htmlRoot.setAttribute('dir', 'ltr');
+                htmlRoot.setAttribute('lang', 'en');
+                if (langText) langText.innerText = 'العربية';
+
+                elementsToTranslate.forEach(el => {
+                    if (el.hasAttribute('data-en')) {
+                        const enText = el.getAttribute('data-en');
+                        const icon = el.querySelector('i');
+                        if (icon) {
+                            el.innerHTML = icon.outerHTML + ' ' + enText;
+                        } else {
+                            el.innerText = enText;
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>
