@@ -8,153 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- ربط ملف الـ CSS المنفصل -->
+    <link rel="stylesheet" href="style.css">
+
     <style>
-        /* ==================== المتغيرات ولوحة الألوان ==================== */
-        :root {
-            --primary: #184152;
-            --primary-dark: #0b222d;
-            --accent: #9bc1aa;
-            --accent-hover: #7fae91;
-            --accent-light: rgba(155, 193, 170, 0.12);
-            --bg-light: #f7faf9;
-            --white: #ffffff;
-            --text-dark: #1f2d34;
-            --text-muted: #5c707a;
-            --shadow-sm: 0 4px 20px rgba(24, 65, 82, 0.05);
-            --glass-border: rgba(155, 193, 170, 0.3);
-            --header-bg: rgba(255, 255, 255, 0.95);
-        }
-
-        [data-theme="dark"] {
-            --primary: #24586e;
-            --primary-dark: #061218;
-            --accent: #aed3bc;
-            --accent-hover: #91bda1;
-            --accent-light: rgba(174, 211, 188, 0.1);
-            --bg-light: #081116;
-            --white: #122129;
-            --text-dark: #f0f5f8;
-            --text-muted: #8ca2ad;
-            --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.4);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --header-bg: rgba(18, 33, 41, 0.95);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
-            scroll-behavior: smooth;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-        }
-
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.7;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1240px;
-            margin: 0 auto;
-        }
-
-        /* ==================== الهيدر والشعار ==================== */
-        header {
-            background: var(--header-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 8px 0;
-            border-bottom: 1px solid var(--glass-border);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            flex-shrink: 0;
-        }
-
-        .school-logo {
-            height: 90px;
-            width: auto;
-            max-height: 100px;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-
-        .school-logo:hover {
-            transform: scale(1.05);
-        }
-
-        .nav-right-group {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .nav-links li a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 700;
-            font-size: 0.92rem;
-            transition: 0.3s;
-            padding: 6px 4px;
-        }
-
-        .nav-links li a:hover, 
-        .nav-links li a.active {
-            color: var(--accent-hover);
-        }
-
-        .controls-group {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .theme-btn, .lang-btn {
-            background: rgba(155, 193, 170, 0.15);
-            border: 1px solid var(--accent);
-            color: var(--text-dark);
-            padding: 6px 14px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.3s ease;
-        }
-
-        .theme-btn:hover, .lang-btn:hover {
-            background: var(--accent);
-            color: #0b222d;
-        }
-
-        /* ==================== المحتوى الرئيسي ==================== */
         .main-content {
             padding: 160px 0 80px 0;
             min-height: calc(100vh - 180px);
@@ -185,7 +42,6 @@
             color: var(--text-muted);
         }
 
-        /* ==================== قسم ملفات الـ PDF ==================== */
         .pdf-section {
             background: var(--white);
             padding: 30px;
@@ -260,29 +116,90 @@
 </head>
 <body>
 
-    <!-- الهيدر الموحد -->
-    <header>
+    <!-- الهيدر الموحد الشامل لجميع القوائم -->
+    <header id="header">
         <div class="container nav-container">
             <a href="index.html" class="logo-container">
                 <img src="images/imperial-logo.png" alt="Imperial International School Logo" class="school-logo">
             </a>
             
-            <div class="nav-right-group">
+            <nav>
                 <ul class="nav-links">
-                    <li><a href="index.html" data-key="nav-home">Home</a></li>
-                    <li><a href="about.html" class="active" data-key="nav-about">About Us</a></li>
-                    <li><a href="contact.html" data-key="nav-contact">Contact Us</a></li>
-                </ul>
+                    <li><a href="index.html" data-ar="الرئيسية">Home</a></li>
+                    
+                    <!-- About Us (Dropdown) -->
+                    <li class="dropdown">
+                        <a href="about.html" class="dropdown-btn active" data-ar="عنّا">
+                            About Us <i class="fas fa-chevron-down nav-arrow"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="IIS%20Profile/Academic%20Calendar%202027.pdf" target="_blank" data-ar="التقويم الدراسي">Academic Calendar</a></li>
+                            <li><a href="about.html#profile" data-ar="الملف التعريفي">School Profile</a></li>
+                            <li><a href="about.html#guide" data-ar="دليل المدرسة">School Guide</a></li>
+                        </ul>
+                    </li>
 
-                <div class="controls-group">
-                    <button class="theme-btn" id="themeToggle">
-                        <i class="fa-solid fa-moon" id="themeIcon"></i>
-                    </button>
-                    <button class="lang-btn" id="langToggle">
-                        <i class="fa-solid fa-globe"></i> <span id="langText">العربية</span>
-                    </button>
-                </div>
-            </div>
+                    <!-- Gallery (Dropdown) -->
+                    <li class="dropdown">
+                        <a href="#gallery" class="dropdown-btn" data-ar="معرض الأنشطة">
+                            Activities Gallery <i class="fas fa-chevron-down nav-arrow"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#campus-landmarks" data-ar="أبرز معالم الحرم المدرسي">Campus Landmarks</a></li>
+                            <li><a href="#events" data-ar="أحداث وفعاليات">Events & Activities</a></li>
+                            <li><a href="#ceremonies" data-ar="الاحتفالات والمراسم">Celebrations & Ceremonies</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Weekly Plan (Dropdown) -->
+                    <li class="dropdown">
+                        <a href="weekly-plan.html" class="dropdown-btn" data-ar="الخطة الأسبوعية">
+                            Weekly Plan <i class="fas fa-chevron-down nav-arrow"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="weekly-plan.html#weekly-plans" data-ar="الخطة الأسبوعية">Weekly Plans</a></li>
+                            <li><a href="quiz-materials.html" data-ar="مواد الاختبارات القصيرة">Quiz Materials</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Student Bag (Dropdown) -->
+                    <li class="dropdown">
+                        <a href="#student-bag" class="dropdown-btn" data-ar="حقيبة الطالب">
+                            Student Bag <i class="fas fa-chevron-down nav-arrow"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="book-list.html" data-ar="قائمة الكتب">Book List</a></li>
+                            <li><a href="IIS%20Profile/School-Handbook-Students-Parents.pdf" target="_blank" data-ar="دليل المدرسة للطلاب وأولياء الأمور">School-Handbook-Students-Parents</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Apply Now (Dropdown) -->
+                    <li class="dropdown">
+                        <a href="admission.html" class="dropdown-btn highlight-link" data-ar="تَقدَّم الآن">
+                            Apply Now <i class="fas fa-chevron-down nav-arrow"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="admission.html#conditions" data-ar="شروط القبول">Admission Terms</a></li>
+                            <li><a href="admission.html#requirements" data-ar="ملف متطلبات التطبيق">Application Requirements</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Contact Us -->
+                    <li><a href="contact.html" data-ar="تواصل معنا">Contact Us</a></li>
+                    
+                    <!-- أزرار اللغة والوضع الليلي -->
+                    <li>
+                        <div class="controls-group">
+                            <button type="button" onclick="toggleTheme()" class="theme-btn" id="themeBtn" title="Change Theme">
+                                <i class="fas fa-moon" id="themeIcon"></i>
+                            </button>
+                            <button type="button" onclick="switchLanguage()" class="lang-btn" title="Switch Language">
+                                <i class="fas fa-globe"></i> <span id="langText">العربية</span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
 
@@ -291,16 +208,16 @@
         <div class="container">
             <!-- بطاقة التعريف -->
             <div class="about-card">
-                <h1 data-key="about-title">About Imperial International School</h1>
-                <p data-key="about-desc">Empowering students and nurturing their intellectual and personal skills in a safe and stimulating global environment.</p>
+                <h1 data-key="about-title" data-ar="عن مدرسة الفخامة العالمية">About Imperial International School</h1>
+                <p data-key="about-desc" data-ar="تمكين الطلاب وتنمية مهاراتهم الفكرية والشخصية من خلال بيئة تعليمية آمنة ومحفزة ذات معايير عالمية.">Empowering students and nurturing their intellectual and personal skills in a safe and stimulating global environment.</p>
             </div>
 
             <!-- قسم ملف الرؤية والرسالة Vision PDF -->
             <section class="pdf-section" id="Vision">
                 <div class="pdf-header">
-                    <h2><i class="fa-solid fa-eye"></i> <span data-key="vision-title">Vision & Mission</span></h2>
-                    <a href="IIS%20Profile/Vision.pdf" download class="download-btn">
-                        <i class="fa-solid fa-download"></i> <span data-key="pdf-download">Download PDF</span>
+                    <h2><i class="fa-solid fa-eye"></i> <span data-key="vision-title" data-ar="الرؤية والرسالة">Vision & Mission</span></h2>
+                    <a href="IIS%20Profile/Vision.pdf" download class="download-btn" data-ar="تحميل الملف (PDF)">
+                        <i class="fa-solid fa-download"></i> Download PDF
                     </a>
                 </div>
 
@@ -314,9 +231,9 @@
             <!-- قسم ملف بروفايل المدرسة School Profile PDF -->
             <section class="pdf-section" id="profile">
                 <div class="pdf-header">
-                    <h2><i class="fa-solid fa-file-pdf"></i> <span data-key="profile-title">School Profile</span></h2>
-                    <a href="IIS%20Profile/IIS-School-Profile.pdf" download class="download-btn">
-                        <i class="fa-solid fa-download"></i> <span data-key="pdf-download">Download PDF</span>
+                    <h2><i class="fa-solid fa-file-pdf"></i> <span data-key="profile-title" data-ar="الملف التعريفي للمدرسة">School Profile</span></h2>
+                    <a href="IIS%20Profile/IIS-School-Profile.pdf" download class="download-btn" data-ar="تحميل الملف (PDF)">
+                        <i class="fa-solid fa-download"></i> Download PDF
                     </a>
                 </div>
 
@@ -332,88 +249,89 @@
     <!-- الفوتر -->
     <footer>
         <div class="container">
-            <p data-key="footer-text">All rights reserved © 2026 Imperial International School</p>
+            <p data-key="footer-text" data-ar="جميع الحقوق محفوظة © 2026 مدرسة الفخامة العالمية">All Rights Reserved © 2026 Imperial International School</p>
         </div>
     </footer>
 
-    <!-- السكربت للتحكم بالوضع واللغة -->
+    <!-- سكريبت التفاعل اللغوي والثيم (وضع نهاري افتراضي) -->
     <script>
-        const translations = {
-            ar: {
-                "nav-home": "الرئيسية",
-                "nav-about": "عن المدرسة",
-                "nav-contact": "تواصل معنا",
-                "about-title": "عن مدرسة الفخامة العالمية",
-                "about-desc": "تمكين الطلاب وتنمية مهاراتهم الفكرية والشخصية من خلال بيئة تعليمية آمنة ومحفزة ذات معايير عالمية.",
-                "vision-title": "الرؤية والرسالة",
-                "profile-title": "الملف التعريفي للمدرسة",
-                "pdf-download": "تحميل الملف (PDF)",
-                "footer-text": "جميع الحقوق محفوظة © 2026 مدرسة الفخامة العالمية",
-                "lang-btn": "English"
-            },
-            en: {
-                "nav-home": "Home",
-                "nav-about": "About Us",
-                "nav-contact": "Contact Us",
-                "about-title": "About Imperial International School",
-                "about-desc": "Empowering students and nurturing their intellectual and personal skills in a safe and stimulating global environment.",
-                "vision-title": "Vision & Mission",
-                "profile-title": "School Profile",
-                "pdf-download": "Download PDF",
-                "footer-text": "All rights reserved © 2026 Imperial International School",
-                "lang-btn": "العربية"
-            }
-        };
+        function toggleTheme() {
+            const htmlRoot = document.getElementById('htmlRoot');
+            const themeIcon = document.getElementById('themeIcon');
+            const currentTheme = htmlRoot.getAttribute('data-theme');
 
-        const themeToggleBtn = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        
-        // جعل الثيم الافتراضي نهاري (light) إذا لم يتم اختياره مسبقاً
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        updateThemeIcon(savedTheme);
-
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-
-        function updateThemeIcon(theme) {
-            if (theme === 'dark') {
-                themeIcon.className = 'fa-solid fa-sun';
+            if (currentTheme === 'light') {
+                htmlRoot.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
             } else {
-                themeIcon.className = 'fa-solid fa-moon';
+                htmlRoot.setAttribute('data-theme', 'light');
+                themeIcon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
             }
         }
 
-        const langToggleBtn = document.getElementById('langToggle');
-        const langText = document.getElementById('langText');
-        
-        let currentLang = localStorage.getItem('lang') || 'en';
-        applyLanguage(currentLang);
+        // ضبط الوضع الافتراضي ليكون نهاري
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.getElementById('htmlRoot').setAttribute('data-theme', savedTheme);
+        if(savedTheme === 'dark') {
+            document.getElementById('themeIcon').className = 'fas fa-sun';
+        }
 
-        langToggleBtn.addEventListener('click', () => {
-            currentLang = currentLang === 'en' ? 'ar' : 'en';
-            localStorage.setItem('lang', currentLang);
-            applyLanguage(currentLang);
-        });
+        let currentLang = 'en';
 
-        function applyLanguage(lang) {
-            document.documentElement.setAttribute('lang', lang);
-            document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-            
-            document.querySelectorAll('[data-key]').forEach(elem => {
-                const key = elem.getAttribute('data-key');
-                if (translations[lang] && translations[lang][key]) {
-                    elem.textContent = translations[lang][key];
-                }
-            });
+        function switchLanguage() {
+            const htmlRoot = document.getElementById('htmlRoot');
+            const langText = document.getElementById('langText');
+            const elementsToTranslate = document.querySelectorAll('[data-ar]');
 
-            langText.textContent = translations[lang]["lang-btn"];
+            if (currentLang === 'en') {
+                currentLang = 'ar';
+                htmlRoot.setAttribute('dir', 'rtl');
+                htmlRoot.setAttribute('lang', 'ar');
+                if (langText) langText.innerText = 'English';
+
+                elementsToTranslate.forEach(el => {
+                    if (!el.hasAttribute('data-en')) {
+                        el.setAttribute('data-en', el.innerText);
+                    }
+                    
+                    const arText = el.getAttribute('data-ar');
+                    if (arText) {
+                        const arrow = el.querySelector('.nav-arrow');
+                        const icon = el.querySelector('i');
+                        
+                        if (arrow) {
+                            el.childNodes[0].textContent = arText + ' ';
+                        } else if (icon) {
+                            el.innerHTML = icon.outerHTML + ' ' + arText;
+                        } else {
+                            el.innerText = arText;
+                        }
+                    }
+                });
+            } else {
+                currentLang = 'en';
+                htmlRoot.setAttribute('dir', 'ltr');
+                htmlRoot.setAttribute('lang', 'en');
+                if (langText) langText.innerText = 'العربية';
+
+                elementsToTranslate.forEach(el => {
+                    if (el.hasAttribute('data-en')) {
+                        const enText = el.getAttribute('data-en');
+                        const arrow = el.querySelector('.nav-arrow');
+                        const icon = el.querySelector('i');
+                        
+                        if (arrow) {
+                            el.childNodes[0].textContent = enText + ' ';
+                        } else if (icon) {
+                            el.innerHTML = icon.outerHTML + ' ' + enText;
+                        } else {
+                            el.innerText = enText;
+                        }
+                    }
+                });
+            }
         }
     </script>
 </body>
