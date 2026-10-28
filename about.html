@@ -271,7 +271,6 @@
                 <ul class="nav-links">
                     <li><a href="index.html" data-key="nav-home">Home</a></li>
                     <li><a href="about.html" class="active" data-key="nav-about">About Us</a></li>
-                    <!-- تم حذف Academics و Admission من القائمة -->
                     <li><a href="contact.html" data-key="nav-contact">Contact Us</a></li>
                 </ul>
 
@@ -369,6 +368,7 @@
         const themeToggleBtn = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         
+        // جعل الثيم الافتراضي نهاري (light) إذا لم يتم اختياره مسبقاً
         const savedTheme = localStorage.getItem('theme') || 'light';
         document.documentElement.setAttribute('data-theme', savedTheme);
         updateThemeIcon(savedTheme);
